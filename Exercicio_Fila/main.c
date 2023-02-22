@@ -3,14 +3,12 @@
 #include "fila.h"
 #include "aluno.h"
 
-
-int main() {
-    Fila *f = criar();
-
-    int op;
-  
-    do
-    {
+int main()
+{
+	Fila *f = criar();
+	int op;
+	do
+	{
 
 		printf("1- Inserir \n");
 		printf("2 - Remover \n");
@@ -21,20 +19,33 @@ int main() {
 
 		switch (op)
 		{
-			case 1:
-			   Aluno *a = criarAluno();
-			    lerNome(a);
-				lerPront(a);
-				lerIra(a);
- 			    inserir(f, a);
-			    break;
+		case 1:
+			char nome[20];
+			printf("Nome do aluno: ");
+			scanf("%s", nome);
 
-			case 2: remover(f); break;
-			case 3: mostrar(f);break;
+			int pront;
+			printf("Prontuário do aluno: ");
+			scanf("%d", &pront);
 
+			float ira;
+			printf("Ira do aluno: ");
+			scanf("%f", &ira);
+
+			Aluno *a = criarAluno(nome, pront, ira);
+
+			inserir(f, a);
+			break;
+
+		case 2:
+			remover(f);
+			break;
+		case 3:
+			mostrar(f);
+			break;
 		}
 
-	}while (op<=3);
+	} while (op <= 3);
 
 	return 0;
 }

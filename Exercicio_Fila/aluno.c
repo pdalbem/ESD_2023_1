@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "aluno.h"
 
 struct aluno
@@ -9,42 +10,26 @@ struct aluno
 	float ira;
 };
 
-Aluno *criarAluno()
+Aluno *criarAluno(char nome[], int pront, float ira)
 {
 	Aluno *a = (Aluno *)malloc(sizeof(Aluno));
+	strcpy(a->nome, nome);
+	a->prontuario = pront;
+	a->ira = ira;
 	return a;
 }
 
-
-void lerNome(Aluno *a)
+void mostrarNome(Aluno *a)
 {
-	printf("Nome do aluno: ");
-	scanf("%s", a->nome);
+	printf("Nome: %s \n", a->nome);
 }
 
-void lerPront(Aluno *a)
+void mostrarPront(Aluno *a)
 {
-	printf("Prontuário do aluno: ");
-	scanf("%d", &a->prontuario);
+	printf("Prontuário: %d \n", a->prontuario);
 }
 
-void lerIra(Aluno *a)
+void mostrarIra(Aluno *a)
 {
-	printf("Ira do aluno: ");
-	scanf("%f", &a->ira);
-}
-
-void mostrarNome (Aluno *a)
-{
-    printf ("Nome: %s \n", a->nome);
-}
-
-void mostrarPront (Aluno *a)
-{
-    printf ("Prontuário: %d \n", a->prontuario);
-}
-
-void mostrarIra (Aluno *a)
-{
-    printf ("IRA: %f \n", a->ira);
+	printf("IRA: %f \n", a->ira);
 }
