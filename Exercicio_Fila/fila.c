@@ -4,6 +4,7 @@
 
 #include "fila.h"
 
+
 #define MAXTAM 5
 
 struct fila
@@ -11,19 +12,6 @@ struct fila
 	Aluno *item[MAXTAM];
 	int ini, fim, qtd;
 };
-
-struct aluno
-{
-	char nome[20];
-	int prontuario;
-	float ira;
-};
-
-Aluno *criarAluno()
-{
-	Aluno *a = (Aluno *)malloc(sizeof(Aluno));
-	return a;
-}
 
 Fila *criar()
 {
@@ -33,24 +21,6 @@ Fila *criar()
 	f->qtd = 0;
 
 	return f;
-}
-
-void lerNome(Aluno *a)
-{
-	printf("Nome do aluno: ");
-	scanf("%s", a->nome);
-}
-
-void lerPront(Aluno *a)
-{
-	printf("Prontuário do aluno: ");
-	scanf("%d", &a->prontuario);
-}
-
-void lerIra(Aluno *a)
-{
-	printf("Ira do aluno: ");
-	scanf("%f", &a->ira);
 }
 
 void inserir(Fila *f, Aluno *a)
@@ -89,9 +59,9 @@ void mostrar(Fila *f)
 	{
 		for (int i = f->ini; i < f->ini + f->qtd; i++)
 		{
-			printf("Prontuário: %d \n", f->item[i % MAXTAM]->prontuario);
-			printf("Nome: %s \n", f->item[i % MAXTAM]->nome);
-			printf("IRA: %f \n", f->item[i % MAXTAM]->ira);
+			mostrarNome(f->item[i % MAXTAM]);
+			mostrarPront(f->item[i % MAXTAM]);
+			mostrarIra(f->item[i % MAXTAM]);
 		}
 	}
 }
