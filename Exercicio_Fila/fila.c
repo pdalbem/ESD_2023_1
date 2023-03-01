@@ -15,10 +15,14 @@ struct fila
 Fila *criar()
 {
 	Fila *f = (Fila *)malloc(sizeof(Fila));
-	f->ini = 0;
-	f->fim = 0;
-	f->qtd = 0;
-
+	if (f == NULL)
+		printf("Não foi possível alocar memória");
+	else
+	{
+		f->ini = 0;
+		f->fim = 0;
+		f->qtd = 0;
+	}
 	return f;
 }
 

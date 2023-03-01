@@ -13,9 +13,14 @@ struct aluno
 Aluno *criarAluno(char nome[], int pront, float ira)
 {
 	Aluno *a = (Aluno *)malloc(sizeof(Aluno));
-	strcpy(a->nome, nome);
-	a->prontuario = pront;
-	a->ira = ira;
+	if (a == NULL)
+		printf("Não foi possível alocar memória");
+	else
+	{
+		strcpy(a->nome, nome);
+		a->prontuario = pront;
+		a->ira = ira;
+	}
 	return a;
 }
 
